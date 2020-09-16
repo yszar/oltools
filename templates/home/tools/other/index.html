@@ -1,0 +1,94 @@
+{% extends "home/layout.html" %}
+{% block title %}尽有工具 - 应有尽有{% endblock %}
+{% block keywords %}
+    "短视频,短视频去水印,短视频无水印,抖音无水印,快手无水印,在线工具,程序员,工具,开发人员工具,小工具,站长工具,加密、解密,进制转换,二维码"
+{% endblock %}
+{% block description %}
+    "短视频,短视频去水印,短视频无水印,去水印,在线工具,开发人员工具,代码格式化、压缩、加密、解密,下载链接转换,sql工具,正则测试工具,favicon在线制作,中文简繁体转换,迅雷下载链接转换,进制转换,二维码,抖音无水印,快手无水印"
+{% endblock %}
+{% block ali_icon %}
+    "//at.alicdn.com/t/font_2041726_b9embadjzdj.js"
+{% endblock %}
+{% block body %}
+    <div id="bdy">
+        <div class="w">
+            <div class="main no-side" id="page">
+                <div class="inner">
+                    <ul class="tabs clearfix mgb10">
+                        <li><a class="" href="/"
+                                       rel="nofollow">全部工具</a>
+                                </li>
+                        {% for c_nav in class_nav %}
+                            {% if loop.index == class_nav_index %}
+                                <li><a class="active" href="{{ c_nav.url }}"
+                                       rel="nofollow">{{ c_nav.name }}</a>
+                                </li>
+                            {% else %}
+                                <li>
+                                    <a class=""
+                                       href="{{ c_nav.url }}">{{ c_nav.name }}</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                    <div class="item-list clearfix">
+                        {% for tool in tools %}
+                            <div class="item tool-{{ tool.tool_url }}">
+                                <div class="item-inner">
+                                    <div class="item-hd">
+                                        <a target="_blank"
+                                           href="https://oltools.net/{{ tool.tool_url }}/"
+                                           class="item-icon"><img
+                                                src="{{ tool.image_url }}"
+                                                width="48" height="48"
+                                                alt="{{ tool.tool_url }}"></a>
+                                        <h3><a target="_blank"
+                                               href="https://oltools.net/{{ tool.tool_url }}/">{{ tool.name }}</a>
+                                        </h3>
+
+                                        <span class="item-category">[<a
+                                                target="_blank" rel="nofollow"
+                                                href="/{{ tool.class_url }}">{{ tool.name }}</a>]</span>
+                                        <a title="收藏"
+                                           class="collectable collect"
+                                           href="javascript:"
+                                           data-slug="{{ tool.tool_url }}"
+                                           data-url="https://oltools.net/{{ tool.tool_url }}.html"
+                                           style="visibility: hidden"><i
+                                                class="icon collect"></i><var>加入收藏</var></a>
+                                    </div>
+                                    <div class="item-bd">
+                                        <div class="item-desc"
+                                             title="{{ tool.desc }}">
+                                            {{ tool.desc }}
+                                        </div>
+                                    </div>
+                                    <div class="item-ft">
+                                        <a target="_blank" class="item-link"
+                                           href="https://oltools.net/{{ tool.tool_url }}/">https://oltools.net/{{ tool.tool_url }}/</a>
+                                        <a target="_blank" class="item-btn"
+                                           href="https://oltools.net/{{ tool.tool_url }}/">进入</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="inner">
+                        <div class="layui-card">
+                            <div class="layui-card-header"><h3>友情链接</h3></div>
+                            <div class="layui-card-body">
+                                {% for link in links %}
+                                    <a target="_blank" rel="noopener noreferrer"
+                                       class="js-track"
+                                       href="{{ link.url }}"
+                                       title="{{ link.name }}"
+                                    style="margin-right: 10px">{{ link.name }}</a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

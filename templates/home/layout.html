@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="author" content="yszar">
+    <!--    <link rel="publisher" href="https://plus.google.com/113621341737546487026">-->
+    <link rel="canonical" href="https://oltools.net/">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:title" content="尽有工具">
+    <meta property="og:site_name" content="尽有工具">
+    <meta property="og:description"
+          content={% block description %}{% endblock %}>
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://oltools.net/images/1200-630.png">
+    <meta property="og:url" content="https://oltools.net/">
+    <meta name="keywords"
+          content={% block keywords %}{% endblock %}>
+    <meta name="description"
+          content={{ self.description }}>
+    <link rel="shortcut icon"
+          href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <link rel="apple-touch-icon" sizes="57x57" href="/img/icon-57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/img/icon-72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/img/icon-57@2x.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/img/icon-72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="尽有工具">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="grey">
+    <script src={% block ali_icon %}{% endblock %}></script>
+    <script src="https://www.layuicdn.com/layui-v2.5.6/layui.js"></script>
+    <script src="{{ url_for('static', filename='js/oltools.js') }}"></script>
+    <link rel="stylesheet"
+          href="https://www.layuicdn.com/layui-v2.5.6/css/layui.css">
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/oltools.css') }}">
+    <style type="text/css">
+        .icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<noscript>
+    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
+        properly without JavaScript enabled.
+        Please enable it to continue.</strong>
+</noscript>
+<div id="app">
+    <div id="hdr">
+        <div class="w"><a class="logo" rel="nofollow"
+                          href="https://oltools.net/"> 尽有工具</a>
+            <form
+                    name="search"
+                    id="srch"
+                    class="hidden-xs hidden-sm"
+                    action="https://oltools.net/search/"
+                    method="GET"
+            >
+                <input
+                        type="text"
+                        class="text"
+                        name="query"
+                        value=""
+                        placeholder="想找什么来这搜"
+                />
+                <button type="submit" class=" waves-effect">搜索</button>
+                <p class="hot-keywords">
+                    <a
+                            target="_blank"
+                            href="https://oltools.net/search/?query=%E6%A0%BC%E5%BC%8F%E5%8C%96"
+                    >格式化</a
+                    ><a
+                        target="_blank"
+                        href="https://oltools.net/search/?query=%E8%A7%A3%E5%AF%86"
+                >解密</a
+                ><a
+                        target="_blank"
+                        href="https://oltools.net/search/?query=%E6%97%B6%E9%97%B4%E6%88%B3"
+                >时间戳</a
+                >
+                </p>
+            </form>
+            <div id="eles">
+                <ul>
+                    <li>
+                        <a href="https://oltools.net/top/">
+                            <svg class="icon" aria-hidden="true"
+                                 style="color: #3498db;">
+                                <use xlink:href="#icon-paixing"></use>
+                            </svg>
+                            <span>排行榜</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="TopHeader">
+        <div class="w">
+            <ul class="layui-nav layui-bg-blue">
+                {% for nav in first_nav %}
+                    {% if loop.index0 == nav_index %}
+                        <li class="layui-nav-item layui-this"><a
+                                href="/{{ nav.url }}">{{ nav.name }}</a></li>
+                    {% else %}
+                        <li class="layui-nav-item"><a
+                                href="/{{ nav.url }}">{{ nav.name }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% block body %}
+    {% endblock %}
+    <div id="foot">
+        <div class="w">
+            <div class="declare">
+                <a rel="nofollow" href="https://oltools.net/">工具首页</a>
+                <br>
+                Copyright © 2016-2020 <a rel="noopener noreferrer"
+                                         href="https://tangjiuyang.com"
+                                         target="_blank">开发者</a>.
+                Current version is <a style="color: #3498db;"
+                                      href="https://oltools.net/changelog.html">{{ ver_num }}</a>.
+                UTC+08:00, <div id="show"></div><br>
+                <a rel="noopener noreferrer" target="_blank"
+                   href="http://www.beian.miit.gov.cn/">陇ICP备15003024号</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
