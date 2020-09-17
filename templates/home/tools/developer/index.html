@@ -16,8 +16,8 @@
                 <div class="inner">
                     <ul class="tabs clearfix mgb10">
                         <li><a class="" href="/"
-                                       rel="nofollow">全部工具</a>
-                                </li>
+                               rel="nofollow">全部工具</a>
+                        </li>
                         {% for c_nav in class_nav %}
                             {% if loop.index == class_nav_index %}
                                 <li><a class="active" href="{{ c_nav.url }}"
@@ -32,7 +32,7 @@
                         {% endfor %}
                     </ul>
                     <div class="item-list clearfix">
-                        {% for tool in tools %}
+                        {% for tool in tools if tool.class_url.name =='开发工具' %}
                             <div class="item tool-{{ tool.tool_url }}">
                                 <div class="item-inner">
                                     <div class="item-hd">
@@ -48,7 +48,7 @@
 
                                         <span class="item-category">[<a
                                                 target="_blank" rel="nofollow"
-                                                href="/{{ tool.class_url }}">{{ tool.name }}</a>]</span>
+                                                href="/{{ tool.class_url.url }}">{{ tool.class_url.name }}</a>]</span>
                                         <a title="收藏"
                                            class="collectable collect"
                                            href="javascript:"
@@ -82,7 +82,7 @@
                                        class="js-track"
                                        href="{{ link.url }}"
                                        title="{{ link.name }}"
-                                    style="margin-right: 10px">{{ link.name }}</a>
+                                       style="margin-right: 10px">{{ link.name }}</a>
                                 {% endfor %}
                             </div>
                         </div>

@@ -32,7 +32,7 @@
                         {% endfor %}
                     </ul>
                     <div class="item-list clearfix">
-                        {% for tool in tools %}
+                        {% for tool in tools if tool.class_url.name =='加密解密' %}
                             <div class="item tool-{{ tool.tool_url }}">
                                 <div class="item-inner">
                                     <div class="item-hd">
@@ -48,7 +48,7 @@
 
                                         <span class="item-category">[<a
                                                 target="_blank" rel="nofollow"
-                                                href="/{{ tool.class_url }}">{{ tool.name }}</a>]</span>
+                                                href="/{{ tool.class_url.url }}">{{ tool.class_url.name }}</a>]</span>
                                         <a title="收藏"
                                            class="collectable collect"
                                            href="javascript:;"

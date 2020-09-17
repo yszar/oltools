@@ -34,39 +34,11 @@ tools_nav5 = ToolsNav(name="其他", url="other")
 db.session.add_all([tools_nav1, tools_nav2, tools_nav3, tools_nav4, tools_nav5])
 db.session.commit()
 
-tool_info1 = ToolInfo(pid=1, name="我是工具一", desc="我是简介紫薯布丁紫薯布丁紫薯布丁.",
-                      image_url="https://cdn.tangjiuyang.com/other/icons8-tool-img-48.png",
-                      tool_url="/ttt1")
-tool_info2 = ToolInfo(pid=1, name="我是工具二", desc="我是简介紫薯布丁紫薯布丁紫薯布丁.",
-                      image_url="https://cdn.tangjiuyang.com/other/icons8-tool-img-48.png",
-                      tool_url="/ttt1")
-tool_info3 = ToolInfo(pid=2, name="我是工具三", desc="我是简介紫薯布丁紫薯布丁紫薯布丁.",
-                      image_url="https://cdn.tangjiuyang.com/other/icons8-tool-img-48.png",
-                      tool_url="/ttt1")
-tool_info4 = ToolInfo(pid=2, name="我是工具4", desc="我是简介紫薯布丁紫薯布丁紫薯布丁.",
-                      image_url="https://cdn.tangjiuyang.com/other/icons8-tool-img-48.png",
-                      tool_url="/ttt1")
-tool_info5 = ToolInfo(pid=4, name="我是工具5", desc="我是简介紫薯布丁紫薯布丁紫薯布丁.",
-                      image_url="https://cdn.tangjiuyang.com/other/icons8-tool-img-48.png",
-                      tool_url="/ttt1")
-tool_info6 = ToolInfo(pid=4, name="我是工具6", desc="我是简介紫薯布丁紫薯布丁紫薯布丁.",
-                      image_url="https://cdn.tangjiuyang.com/other/icons8-tool-img-48.png",
-                      tool_url="/ttt1")
-tool_info7 = ToolInfo(pid=3, name="我是工具7", desc="我是简介紫薯布丁紫薯布丁紫薯布丁.",
-                      image_url="https://cdn.tangjiuyang.com/other/icons8-tool-img-48.png",
-                      tool_url="/ttt1")
-tool_info8 = ToolInfo(pid=5, name="我是工具8", desc="我是简介紫薯布丁紫薯布丁紫薯布丁.",
-                      image_url="https://cdn.tangjiuyang.com/other/icons8-tool-img-48.png",
-                      tool_url="/ttt1")
-tool_info9 = ToolInfo(pid=5, name="我是工具9", desc="我是简介紫薯布丁紫薯布丁紫薯布丁.",
-                      image_url="https://cdn.tangjiuyang.com/other/icons8-tool-img-48.png",
-                      tool_url="/ttt1")
-tool_info10 = ToolInfo(pid=2, name="我是工具十", desc="我是简介紫薯布丁紫薯布丁紫薯布丁.",
-                       image_url="https://cdn.tangjiuyang.com/other/icons8-tool-img-48.png",
-                       tool_url="/ttt1")
-db.session.add_all([tool_info1, tool_info2, tool_info3, tool_info4, tool_info5,
-                    tool_info6, tool_info7, tool_info8, tool_info9,
-                    tool_info10])
+tool_info1 = ToolInfo(pid=1, name="短视频去水印", desc="短视频完美去水印.",
+                      image_url="https://cdn.oltools.net/img%E7%9F%AD%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91.png",
+                      tool_url="short-video")
+
+db.session.add_all([tool_info1])
 db.session.commit()
 
 
